@@ -31,7 +31,7 @@ public:
 	void set_handle(HANDLE handle);
 	HANDLE get_handle();
 
-	operator bool() const;
+	explicit operator bool(); 
 
 private:
 	HANDLE handle;

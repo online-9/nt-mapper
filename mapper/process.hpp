@@ -10,7 +10,7 @@ public:
 	process(uint32_t id, DWORD desired_access) : handle(safe_handle(OpenProcess(desired_access, false, id))) { }
 	process() : handle() { }
 
-	operator bool() const;
+	explicit operator bool();
 
 #pragma region Statics
 	static process current_process();
@@ -27,7 +27,7 @@ public:
 	uintptr_t map(memory_section& section);
 
 	template <class T>
-	inline uintptr_t allocate_and_write(const T buffer&)
+	inline uintptr_t allocate_and_write(const T& buffer)
 	{
 		auto buffer_pointer = allocate(buffer);
 		write_memory(buffer, buffer_pointer);

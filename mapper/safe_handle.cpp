@@ -20,7 +20,7 @@ HANDLE safe_handle::get_handle()
 	return this->handle;
 }
 
-safe_handle::operator bool() const
+safe_handle::operator bool()
 {
-	return this->handle;
+	return this->handle != nullptr;
 }

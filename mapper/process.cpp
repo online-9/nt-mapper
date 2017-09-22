@@ -1,9 +1,9 @@
 #include "stdafx.h"
 #include "ntdll.hpp"
 
-process::operator bool() const
+process::operator bool()
 {
-	return this->handle;
+	return static_cast<bool>(this->handle);
 }
 
 process process::current_process()

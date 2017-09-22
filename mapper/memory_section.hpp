@@ -10,5 +10,5 @@ public:
 	uint32_t protection;
 	uint64_t size;
 
-	operator bool() const;
+	explicit operator bool();
 };

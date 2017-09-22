@@ -21,7 +21,7 @@ memory_section::memory_section(uint32_t page_protection, uint64_t size)
 	this->size = size;
 }
 
-memory_section::operator bool() const
+memory_section::operator bool()
 {
-	return this->handle;
+	return static_cast<bool>(this->handle);
 }
