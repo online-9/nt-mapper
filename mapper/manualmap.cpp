@@ -2,7 +2,7 @@
 #include "memory_section.hpp"
 #include "api_set.hpp"
 
-bool injection::manualmap::inject(std::vector<uint8_t>& buffer)
+bool injection::manualmap::inject(const std::vector<uint8_t>& buffer)
 {
 	logger::log("manualmap initiated");
 
@@ -45,7 +45,7 @@ bool injection::manualmap::map_image(map_ctx& ctx)
 	return true;
 }
 
-uintptr_t injection::manualmap::find_or_map_dependecy(std::string image_name)
+uintptr_t injection::manualmap::find_or_map_dependecy(const std::string& image_name)
 {
 	// HAVE WE MAPPED THIS MODULE ALREADY?
 	for (auto module : this->mapped_modules)

@@ -11,7 +11,7 @@ process process::current_process()
 	return process(reinterpret_cast<HANDLE>(-1));
 }
 
-uint32_t process::from_name(std::string process_name)
+uint32_t process::from_name(const std::string& process_name)
 {
 	DWORD process_list[516], bytes_needed;
 	if (EnumProcesses(process_list, sizeof(process_list), &bytes_needed))
