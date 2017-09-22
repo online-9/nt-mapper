@@ -118,7 +118,6 @@ void injection::manualmap::fix_import_table(map_ctx& ctx)
 		if (!rem_mod_handle)
 			logger::log_error("Failed to map depedency");
 
-		
 		for (const auto& fn : functions)
 		{
 			auto rva = PTR(GetProcAddress(loc_mod_handle, fn.name.c_str())) - PTR(loc_mod_handle);

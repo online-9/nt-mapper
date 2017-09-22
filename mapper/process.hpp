@@ -27,7 +27,7 @@ public:
 	uintptr_t map(memory_section& section);
 
 	template <class T>
-	inline uintptr_t allocate_and_write(T buffer)
+	inline uintptr_t allocate_and_write(const T buffer&)
 	{
 		auto buffer_pointer = allocate(buffer);
 		write_memory(buffer, buffer_pointer);
@@ -35,7 +35,7 @@ public:
 	}
 
 	template <class T>
-	inline uintptr_t allocate(T buffer)
+	inline uintptr_t allocate()
 	{
 		return raw_allocate(sizeof(T));
 	}
@@ -47,9 +47,9 @@ public:
 	}
 
 	template<class T>
-	inline bool write_memory(T buffer, const uintptr_t address)
+	inline bool write_memory(const T& buffer, const uintptr_t address)
 	{
-		return write_raw_memory(reinterpret_cast<unsigned char*>(&buffer), sizeof(T), address);
+		return write_raw_memory(reinterpret_cast<unsigned char*>(buffer), sizeof(T), address);
 	}
 #pragma endregion
 
